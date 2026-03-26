@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Assigning survey group...</p>
+
+  <script>
+    const formA = "https://forms.gle/ub1D8NgBk3JkYSiV6";
+    const formB = "https://forms.gle/HZUKCaMve7WvYWNb8";
+
+    // Use current timestamp
+    const now = new Date().getTime();
+
+    // Even → A, Odd → B
+    const group = now % 2 === 0 ? "A" : "B";
+
+    console.log("Timestamp:", now);
+    console.log("Group:", group);
+
+    const target = group === "A" ? formA : formB;
+
+    setTimeout(() => {
+      window.location.href = target + "?group=" + group;
+    }, 200);
+  </script>
+</body>
+</html>
